@@ -1,7 +1,7 @@
-Apiversion: v1
-Kind: Namespace
-Metadata:
-    Name: roboshop
+apiversion: v1
+kind: Namespace
+metadata:
+    name: roboshop
     labels:
         environment: dev
         project: roboshop
