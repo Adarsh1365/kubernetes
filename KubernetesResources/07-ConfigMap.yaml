@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: roboshop-config
+  namespace: roboshop
+  labels:
+    environment: dev
+    project: roboshop
+    poc: roboshop
+data:
+  APP_ENV: dev
+  APP_NAME: roboshop
