@@ -1,0 +1,9 @@
+Apiversion: v1
+Kind: Namespace
+Metadata:
+    Name: roboshop
+    labels:
+        environment: dev
+        project: roboshop
+        poc: roboshop
+
