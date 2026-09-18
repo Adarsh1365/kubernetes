@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ngnix
+  namespace: roboshop
+  labels:
+    environment: dev
+    project: roboshop
+    poc: roboshop
+  annotations:
+    description: "Http://Jenkins.io"
+    owner: "Roboshop Team"
+    contact: ""
+spec:
+  containers:
+    - name: nginx
+      image: nginx:latest
+      ports:
+        - containerPort: 80
