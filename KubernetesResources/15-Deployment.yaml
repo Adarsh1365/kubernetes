@@ -4,7 +4,7 @@ metadata:
   name: frontend-deployment
   namespace: roboshop
 spec:
-  replicas: 10
+  replicas: 5
   selector:
     matchLabels:
       environment: dev
@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: nginx-frontend
-          image: nginx:1.31.4
+          image: nginx:latest
           ports:
             - containerPort: 80
