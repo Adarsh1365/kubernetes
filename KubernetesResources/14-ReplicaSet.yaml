@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+    name: frontend-replicaset
+    namespace: roboshop
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      environment: dev
+      project: roboshop
+      tire: frontend
+    template:
+        metadata:
+            labels:
+              environment: dev
+              project: roboshop
+              tire: frontend
+        spec:
+            containers:
+                - name: nginx-frontend
+                  image: nginx:latest
+                  ports:
+                    - containerPort: 80
