@@ -9,13 +9,13 @@ spec:
     matchLabels:
       environment: dev
       project: roboshop
-      tire: frontend
+      tier: frontend
     template:
         metadata:
             labels:
               environment: dev
               project: roboshop
-              tire: frontend
+              tier: frontend
         spec:
             containers:
                 - name: nginx-frontend
