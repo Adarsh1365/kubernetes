@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-replicaset
+  name: frontend-deployment
   namespace: roboshop
 spec:
   replicas: 10
@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: nginx-frontend
-          image: nginx:9
+          image: nginx:1.31.4
           ports:
             - containerPort: 80
