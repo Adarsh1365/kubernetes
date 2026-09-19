@@ -123,7 +123,6 @@ spec:
                 subPath: frontend.conf
           ports:
             - containerPort: 80
-              targetPort: 80
       volumes:
         - name: frontend-config-volume
           configMap:
