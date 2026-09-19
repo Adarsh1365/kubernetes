@@ -94,42 +94,42 @@ spec:
   type: LoadBalancer
 
 ---
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: frontend
   namespace: roboshop
-  labels:
-    environment: dev
-    project: roboshop
-    component: frontend
 spec:
-    replicas: 5
-    selector:
-      matchLabels:
+  replicas: 1
+  selector:
+    matchLabels:
+      environment: dev
+      project: roboshop
+      component: frontend
+  template:
+    metadata:
+      labels:
         environment: dev
         project: roboshop
         component: frontend
-template:
-    metadata:
-        labels:
-            environment: dev
-            project: roboshop
-            component: frontend
     spec:
-        containers:
-            - name: nginx-frontend
-              image: adarshupputuri/roboshop:frontend
-              ports:
-                - containerPort: 80
-              volumeMounts:
-                - name: frontend-config-volume
-                  mountPath: /etc/nginx/frontend.conf
-                  subPath: frontend.conf
-        volumes:
-            - name: frontend-config-volume
-              configMap:
-                name: frontend-configmap
-                items:
-                    - key: frontend.conf
-                      path: frontend.conf
+      containers:
+        - name: nginx
+          image: adarshupputuri/roboshop:frontend
+          volumeMounts:
+              - name: frontend-config-volume
+                mountPath: /etc/nginx/conf.d/frontend.conf
+                subPath: frontend.conf
+          ports:
+            - containerPort: 80
+              targetPort: 80
+      volumes:
+        - name: frontend-config-volume
+          configMap:
+            name: frontend-configmap
+            items:
+              - key: frontend.conf
+                path: frontend.conf
+
+
