@@ -6,12 +6,12 @@ metadata:
   labels:
     environment: dev
     project: roboshop
-    component: frontend
+    component: mongodb
 spec:
   selector:
     environment: dev
     project: roboshop
-    component: frontend
+    component: mongodb
   ports:
     - protocol: TCP
       port: 27017
