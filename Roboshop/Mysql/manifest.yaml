@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: mysql
+  namespace: roboshop
+type: Opaque
+data:
+  MYSQL_ALLOW_EMPTY_PASSWORD: "eWVzCg=="
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  namespace: roboshop
+  labels:
+    environment: dev
+    project: roboshop
+    component: mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      environment: dev
+      project: roboshop
+      component: mysql
+  # Pod
+  template:
+    metadata:
+      labels:
+        environment: dev
+        project: roboshop
+        component: mysql
+    spec:
+      containers:
+        - name: mysql
+          image: adarshupputuri/roboshop:mysql
+          args: ["--mysql-native-password=ON"]
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              value: "RoboShop@1"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql
+  namespace: roboshop
+  labels:
+    environment: dev
+    project: roboshop
+    component: mysql
+spec:
+  selector:
+    environment: dev
+    project: roboshop
+    component: mysql
+  ports:
+    - protocol: TCP
+      port: 3306 # service port
+      targetPort: 3306 # container port
