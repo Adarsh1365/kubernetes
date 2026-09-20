@@ -55,6 +55,9 @@ spec:
       containers:
         - name: catalogue
           image: adarshupputuri/roboshop:catalogue
+          envFrom:
+            - configMapRef:
+                name: catalogue
 
 
 
