@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: debug
+  namespace: roboshop
+  labels:
+    environment: dev
+    project: roboshop
+    poc: roboshop
+spec:
+  containers:
+    - name: nginx
+      image: debug:v1
+
