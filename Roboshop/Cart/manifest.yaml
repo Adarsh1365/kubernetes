@@ -54,7 +54,7 @@ spec:
         component: cart
     spec:
       containers:
-        - name: user
+        - name: cart
           image: adarshupputuri/roboshop:cart
           envFrom:
             - configMapRef:
