@@ -10,5 +10,6 @@ metadata:
 spec:
   containers:
     - name: nginx
-      image: debug:v1
+      image: adarshupputuri/debug:v1
+
 
